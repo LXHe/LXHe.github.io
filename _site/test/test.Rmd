@@ -1,0 +1,85 @@
+---
+title: "R Markdown 交互网页测试"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+library(dplyr)
+library(ggplot2)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## 第 1 章
+
+### 练习1.数据查看
+
+*diamonds*数据集是R的自带数据集，已经预载完备。你需要使用`head()`函数查看*diamonds*数据集的**前3行**。
+
+```{r ckeck-firstline, exercise=TRUE}
+# 在此书写代码
+
+```
+使用`colnames()`函数，你就能查看数据集的变量名称。查看*diamonds*数据集的变量名并回答之后的问题。
+```{r head-function, exercise=TRUE}
+# 在此书写代码
+
+```
+```{r diamonds-var, echo=FALSE}
+question("下面哪一项不是*diamonds*数据集的变量?",
+  answer("x"),
+  answer("y"),
+  answer("z"),
+  answer("m", correct = TRUE),
+  allow_retry = TRUE,
+  try_again = "Incorrect. Be sure to select every correct answer."
+)
+```
+### 练习2.数据筛选
+
+`dplyr`是R语言最常用的数据分析包，能对数据方便地进行处理。下面，你将基于*diamonds*数据集，按`cut`变量进行计数并回答后续问题。
+
+```{r filter, exercise=TRUE}
+# 在此书写代码
+
+```
+
+```{r filter-hint-1}
+使用`count()`函数
+```
+
+```{r cut-count, echo=FALSE}
+
+question("下列说法正确的有：",
+  answer("cut变量一共包含4个种类"),
+  answer("Fair种类的数目为1610个", correct = TRUE),
+  answer("Good种类的占比最少"),
+  answer("Very Good种类的数目比Fair与Good种类数目之和还多", correct = TRUE),
+  allow_retry = TRUE,
+  try_again = "Incorrect. Be sure to select every correct answer."
+)
+
+```
+
+## 参考答案
+
+### 第一章-练习1.数据查看
+`
+# 代码示例
+
+head(diamonds, 3)
+
+colnames(diamonds)
+`
+
+选择题答案：4
+
+### 第一章-练习2.数据筛选
+`
+# 代码示例
+
+diamonds %>% count(cut)
+`
+
+选择题答案：2,4
